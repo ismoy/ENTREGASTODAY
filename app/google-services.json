@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "884372745168",
+    "project_id": "entregas-to-day",
+    "storage_bucket": "entregas-to-day.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884372745168:android:6e33322bf7e6bd61ffa7d5",
+        "android_client_info": {
+          "package_name": "cl.tofcompany.entregastoday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884372745168-jaoi296eg1qi384t5fr8db3cdr0re1v3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG44eROB92P0l_LlMuMLLBcRRGC7E3FtU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884372745168-jaoi296eg1qi384t5fr8db3cdr0re1v3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
