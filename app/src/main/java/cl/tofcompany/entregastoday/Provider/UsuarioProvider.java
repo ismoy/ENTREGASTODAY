@@ -28,20 +28,16 @@ public class UsuarioProvider {
         return mDatabase.child(idUsuario);
     }
 
-  /*  public Task<Void> update(User user) {
+
+
+    public Task<Void> updateimage(Usuarios usuarios) {
         Map<String, Object> map = new HashMap<>();
-        map.put("username", user.getUsername());
-        map.put("firstname", user.getFirstname());
-        map.put("lastname", user.getLastname());
-        map.put("email", user.getEmail());
-        map.put("phone", user.getPhone());
-        map.put("saldomoncash", user.getSaldomoncash());
-        map.put("saldotopup", user.getSaldotopup());
-        map.put("role", user.getRole());
-        map.put("estado", user.getEstado());
-        map.put("image", user.getImage());
-        map.put("password",user.getPassword());
-        return mDatabase.child(user.getId()).updateChildren(map);
-    }*/
+        map.put("nombre", usuarios.getNombre());
+        map.put("image", usuarios.getImage());
+        map.put("phone", usuarios.getPhone());
+        map.put("apellido", usuarios.getApellido());
+        return mDatabase.child(usuarios.getId()).updateChildren(map);
+    }
+
 
 }

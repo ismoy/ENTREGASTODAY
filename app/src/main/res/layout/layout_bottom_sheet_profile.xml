@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/botomsheetcontainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_backgroud"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textSize="20sp"
+        android:text="Perfil"
+        android:fontFamily="@font/mulish_regular"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/picturebottomsheetadmin"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_baseline_person_24"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            app:civ_border_width="5dp"
+            app:civ_border_color="@color/black"
+            android:layout_marginTop="40dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:fontFamily="@font/mulish_regular"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/nombrebottomsheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="17sp"
+                android:fontFamily="@font/mulish_regular"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apellido"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:fontFamily="@font/mulish_regular"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/apellidobottomsheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="17sp"
+                android:fontFamily="@font/mulish_regular"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rut"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:fontFamily="@font/mulish_regular"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/rutbottomsheeet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="17sp"
+                android:fontFamily="@font/mulish_regular"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correo"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:fontFamily="@font/mulish_regular"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/emailbottomsheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="17sp"
+                android:fontFamily="@font/mulish_regular"/>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Telefono"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:fontFamily="@font/mulish_regular"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/telefonobottomsheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="17sp"
+                android:fontFamily="@font/mulish_regular"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <Button
+            android:id="@+id/btnlogout"
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:text="Cerrar sesión"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="0dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/mulish_regular"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_boton"/>
+    </LinearLayout>
+</LinearLayout>

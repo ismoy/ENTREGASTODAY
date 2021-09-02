@@ -1,23 +1,32 @@
 package cl.tofcompany.entregastoday.Controladores.registrar;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import cl.tofcompany.entregastoday.Controladores.MainActivity;
@@ -44,13 +53,13 @@ public class RegistrarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
-        init();
+        Init();
 
     }
 
 
 
-    private void init(){
+    private void Init(){
         txtnombre = findViewById(R.id.nombre);
         txtapellido = findViewById(R.id.apellido);
         txtrut = findViewById(R.id.rut);
@@ -79,19 +88,18 @@ public class RegistrarActivity extends AppCompatActivity {
         final String email = txtemail.getText().toString().trim();
 
         if (TextUtils.isEmpty(nombre)) {
-            txtnombre.setError("Requerido");
+            customToast(RegistrarActivity.this,"Por favor ingrese su Nombre");
             txtnombre.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
             return;
         }
-        if (!validarletrasynumero(nombre)) {
+        if (!validarletras(nombre)) {
             txtnombre.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
-            txtnombre.setError("Solo letra y numero");
-            txtnombre.setHint("No permite caracter especiales");
+            customToast(RegistrarActivity.this,"El Nombre no debe tener números ni caracteres especiales #0-9,.*´=");
             return;
         }
 
         if (TextUtils.isEmpty(apellido)) {
-            txtapellido.setError("Requerido");
+            customToast(RegistrarActivity.this,"Por favor ingrese su Apellido");
             txtapellido.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
             return;
         }
@@ -99,45 +107,49 @@ public class RegistrarActivity extends AppCompatActivity {
         //Validamos que solo pueden igresar letra
         if (!validarletras(apellido)) {
             txtapellido.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
-            txtapellido.setError("Solo letra");
+            customToast(RegistrarActivity.this,"El Apellido no debe tener números ni caracteres especiales #0-9,.*´=");
             return;
         }
         if (TextUtils.isEmpty(email)) {
             txtemail.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
-            txtemail.setError("requerido");
+            customToast(RegistrarActivity.this,"Por favor ingrese un correo electrónico");
             return;
         }
         if (!validaremail(email)) {
-            txtemail.setError("invalida");
+            customToast(RegistrarActivity.this,"Correo electrónico inválido");
             txtemail.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
             return;
         }
-        if (TextUtils.isEmpty(rut)) {
+        if (TextUtils.isEmpty(rut)){
             txtrut.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
-            txtrut.setError("Requerido");
+            customToast(RegistrarActivity.this,"Por favor ingrese su Rut");
             return;
         }
-
+         if (!validarRut(rut)) {
+             txtrut.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
+             customToast(RegistrarActivity.this,"Por favor ingrese un Rut válido");
+             return;
+                }
 
         if (TextUtils.isEmpty(phone)) {
-            txtphone.setError("Requerido");
+            customToast(RegistrarActivity.this,"Por favor ingrese un número de teléfono");
             txtphone.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
             return;
         }
         if (!isValidPhoneNumber(phone)) {
             txtphone.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
-            txtphone.setError("Ingrese un numero celular valido");
+            customToast(RegistrarActivity.this,"Por favor ingrese un número de teléfono válido ");
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
-            txtpassword.setError("Requerido");
+            customToast(RegistrarActivity.this,"Por favor ingrese una contraseña");
             txtpassword.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
             return;
         }
 
         if (password.length() < 6) {
-            txtpassword.setError("Ingrese un paswword seguro");
+            customToast(RegistrarActivity.this,"La contraseña debe tener al menos 6 caracteres");
             txtpassword.setHintTextColor(ContextCompat.getColor(this, R.color.design_default_color_error));
 
         }else {
@@ -159,7 +171,7 @@ public class RegistrarActivity extends AppCompatActivity {
                 FirebaseUser user = fAuth.getCurrentUser();
                 fAuth.setLanguageCode("es");
                 assert user != null;
-                user.sendEmailVerification().addOnCompleteListener(task1 -> Toast.makeText(RegistrarActivity.this , "verifica su correo" , Toast.LENGTH_LONG).show()).addOnFailureListener(e -> {
+                user.sendEmailVerification().addOnCompleteListener(task1 -> customToastSuccess(RegistrarActivity.this , "Su cuenta ha sido creada con éxito. Revise su correo electrónico para activar la cuenta")).addOnFailureListener(e -> {
 
                     String TAG = "";
                     Log.d(TAG , "error" + e.getMessage());
@@ -168,7 +180,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
             } else {
                 //mensaje en case de error
-                Toast.makeText(RegistrarActivity.this , "Error" + Objects.requireNonNull(task.getException()).getMessage() , Toast.LENGTH_LONG).show();
+                customToast(RegistrarActivity.this,"Error" + Objects.requireNonNull(task.getException()).getMessage());
             }
         });
     }
@@ -181,7 +193,7 @@ public class RegistrarActivity extends AppCompatActivity {
                 startActivity(intent);
             }else {
                 //mensaje de error
-                Toast.makeText(RegistrarActivity.this, "Error" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
+                customToast(RegistrarActivity.this,"Error" + Objects.requireNonNull(task.getException()).getMessage());
             }
         });
     }
@@ -211,4 +223,46 @@ public class RegistrarActivity extends AppCompatActivity {
         }
     }
 
+    private void customToast(Context context, String mensaje){
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.custom_toast,(ViewGroup) findViewById(R.id.layoutcustomtoast));
+        TextView txtmensaje = view.findViewById(R.id.mensajeerror);
+        txtmensaje.setText(mensaje);
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.NO_GRAVITY,0,1000);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(view);
+        toast.show();
+    }
+
+    private void customToastSuccess(Context context, String mensaje){
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.custom_toast_success,(ViewGroup) findViewById(R.id.layoutcustomtoastsuccess));
+        TextView txtmensaje = view.findViewById(R.id.mensajesuccess);
+        txtmensaje.setText(mensaje);
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.NO_GRAVITY,0,1000);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(view);
+        toast.show();
+    }
+
+    //Validamos un formato para Rut
+    public static Boolean validarRut(String rut) {
+        Pattern pattern = Pattern.compile("^[0-9]+-[0-9kK]{1}$");
+        Matcher matcher = pattern.matcher(rut);
+        if (!matcher.matches()) return false;
+        String[] stringRut = rut.split("-");
+        return stringRut[1].toLowerCase().equals(RegistrarActivity.dv(stringRut[0]));
+    }
+
+    /*
+     * Valida el dígito verificador
+     */
+    public static String dv(String rut) {
+        Integer M = 0, S = 1, T = Integer.parseInt(rut);
+        for (; T != 0; T = (int) Math.floor(T /= 10))
+            S = (S + T % 10 * (9 - M++ % 6)) % 11;
+        return (S > 0) ? String.valueOf(S - 1) : "k";
+    }
 }

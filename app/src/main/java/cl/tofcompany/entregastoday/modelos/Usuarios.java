@@ -8,6 +8,7 @@ public class Usuarios {
     String rut;
     String phone;
     String password;
+    String image;
 
     public Usuarios() {
     }
@@ -21,6 +22,17 @@ public class Usuarios {
         this.phone = phone;
         this.password = password;
     }
+
+    public Usuarios(String nombre, String apellido, String email, String image, String phone) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.image = image;
+        this.phone = phone;
+
+    }
+
+
 
     public String getId() {
         return id;
@@ -78,4 +90,11 @@ public class Usuarios {
         this.password = password;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

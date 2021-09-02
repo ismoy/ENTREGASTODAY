@@ -5,7 +5,7 @@
         android:bottomLeftRadius="130dp"/>
     <gradient
         android:startColor="@color/colordominante"
-        android:endColor="@color/colorazul"
+        android:endColor="@color/colorbotones"
         android:centerColor="@color/white"
         android:gradientRadius="18dp"/>
 </shape>

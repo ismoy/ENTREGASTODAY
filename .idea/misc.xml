@@ -3,21 +3,46 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable-v24/bottom_sheet_backgroud.xml" value="0.1859375" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/background_toast_error.xml" value="0.17962962962962964" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/background_toast_success.xml" value="0.17685185185185184" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/bg.xml" value="0.1859375" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/bg_boton.xml" value="0.13425925925925927" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/bggradient.xml" value="0.1859375" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/bginputtext.xml" value="0.12962962962962962" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/bgprincipal.xml" value="0.13425925925925927" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/button_login_rounded.xml" value="0.10555555555555556" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/edt_diseno.xml" value="0.1859375" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1859375" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.125" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/ic_baseline_person_pin_24.xml" value="0.1859375" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1859375" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/ic_caja.xml" value="0.17685185185185184" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/log_reg_back.xml" value="0.1859375" />
-        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_registrar.xml" value="0.13114754098360656" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/drawable/splashscreen.xml" value="0.18307692307692308" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/font/font.xml" value="0.1" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_detalles_cotizacion_servicio_auto.xml" value="0.15572916666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_detalles_cotizacion_servicio_bicicleta.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_detalles_cotizacion_servicio_furgon.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_detalles_cotizacion_servicio_moto.xml" value="0.1" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_history.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_history_booking_detalle.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_main.xml" value="0.1398148148148148" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_olvidar_contrasena.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_profile.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_registrar.xml" value="0.12777777777777777" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_servicio_auto.xml" value="0.13703703703703704" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_servicio_bicicleta.xml" value="0.13703703703703704" />
-        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_servicio_envio.xml" value="0.1" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_servicio_envio.xml" value="0.13425925925925927" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_servicio_furgon.xml" value="0.13703703703703704" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_servicio_moto.xml" value="0.13703703703703704" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_splash_screen.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_splash_screen2.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/activity_update_profile.xml" value="0.13425925925925927" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/card_history_booking.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/custom_toast.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/custom_toast_success.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/layout/layout_bottom_sheet_profile.xml" value="0.16979166666666667" />
         <entry key="..\:/Users/beliz/Desktop/ENTREGASTODAY/app/src/main/res/menu/app_bar_menu.xml" value="0.13703703703703704" />
       </map>
     </option>

@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,6 +25,7 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 import cl.tofcompany.entregastoday.Controladores.Home.ServicioEnvio;
+import cl.tofcompany.entregastoday.Controladores.registrar.OlvidarContrasena;
 import cl.tofcompany.entregastoday.Controladores.registrar.RegistrarActivity;
 import cl.tofcompany.entregastoday.Provider.AuthProvider;
 import cl.tofcompany.entregastoday.R;
@@ -30,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView iralregistro;
     private EditText memail;
     private TextInputEditText mpassword;
-    private TextView molvidascontraseña;
+    private TextView molvidascontrasena;
     private Button mbtn_login;
     private ProgressDialog mDialog;
     private AuthProvider mAuthProvider;
@@ -47,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         iralregistro = findViewById(R.id.crearcuenta);
         memail = findViewById(R.id.email);
         mpassword = findViewById(R.id.password1);
-        molvidascontraseña = findViewById(R.id.olvidascontraseña);
+        molvidascontrasena = findViewById(R.id.olvidascontrasena);
         mbtn_login = findViewById(R.id.login);
         mDialog = new ProgressDialog(this);
         mAuthProvider = new AuthProvider();
@@ -57,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         mbtn_login.setOnClickListener(v -> Login());
+        molvidascontrasena.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, OlvidarContrasena.class);
+            startActivity(intent);
+        });
     }
 
 
@@ -66,23 +75,23 @@ public class MainActivity extends AppCompatActivity {
         final String password = mpassword.getText().toString();
 
         if (TextUtils.isEmpty(correo)) {
-            memail.setError("Requerido");
+           customToast(MainActivity.this,"Se requiere un correo electrónico");
             memail.setHintTextColor(ContextCompat.getColor(this,R.color.design_default_color_error));
             return;
         }
         if (!validaremail(correo)) {
-            memail.setError("Invalido");
+           customToast(MainActivity.this,"Correo electrónico inválido");
             memail.setHintTextColor(ContextCompat.getColor(this,R.color.design_default_color_error));
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
-            mpassword.setError("Requerido");
+            customToast(MainActivity.this,"Se requiere una contraseña");
             mpassword.setHintTextColor(ContextCompat.getColor(this,R.color.design_default_color_error));
             return;
         }
         if (password.length() < 6) {
-            mpassword.setError("Tiene que tener 6 o mas");
+            customToast(MainActivity.this,"La contraseña debe tener al menos 6 caracteres");
             mpassword.setHintTextColor(ContextCompat.getColor(this,R.color.design_default_color_error));
         }else {
             mDialog.setMessage("Cargando...");
@@ -95,12 +104,13 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
 
                     } else {
-                        Toast.makeText(MainActivity.this, "Cuenta no verificada ", Toast.LENGTH_SHORT).show();
                         mDialog.dismiss();
+                        customToast(MainActivity.this,"Cuenta no verificada. Por favor revise su correo electrónico");
+
                     }
                 } else {
-                    Toast.makeText(MainActivity.this, "Email o contraseña incorrecto", Toast.LENGTH_LONG).show();
                     mDialog.dismiss();
+                    customToast(MainActivity.this,"Problema al iniciar sesión, verifique su correo electrónico y contraseña");
                 }
             });
 
@@ -115,5 +125,16 @@ public class MainActivity extends AppCompatActivity {
         return pattern.matcher(email).matches();
     }
 
+    private void customToast(Context context, String mensaje){
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.custom_toast,(ViewGroup) findViewById(R.id.layoutcustomtoast));
+        TextView txtmensaje = view.findViewById(R.id.mensajeerror);
+        txtmensaje.setText(mensaje);
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.NO_GRAVITY,0,400);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(view);
+        toast.show();
+    }
 
 }

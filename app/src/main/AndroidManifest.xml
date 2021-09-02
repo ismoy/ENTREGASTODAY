@@ -2,13 +2,48 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cl.tofcompany.entregastoday">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ENTREGASTODAY">
+        <activity
+            android:name=".Controladores.Cliente.UpdateProfile"
+            android:exported="true" />
+        <activity
+            android:name=".Controladores.registrar.OlvidarContrasena"
+            android:exported="true" />
+        <activity
+            android:name=".DetalleServicios.HistoryBookingDetalle"
+            android:exported="true" />
+        <activity
+            android:name=".Controladores.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Controladores.Cliente.Profile"
+            android:exported="true" />
+        <activity
+            android:name=".DetalleServicios.DetallesCotizacionServicioAuto"
+            android:exported="true" />
+        <activity
+            android:name=".DetalleServicios.DetallesCotizacionServicioBicicleta"
+            android:exported="true" />
+        <activity
+            android:name=".DetalleServicios.DetallesCotizacionServicioFurgon"
+            android:exported="true" />
+        <activity
+            android:name=".DetalleServicios.History"
+            android:exported="true" />
+        <activity
+            android:name=".DetalleServicios.DetallesCotizacionServicioMoto"
+            android:exported="true" />
         <activity
             android:name=".Controladores.Servicios.ServicioFurgon"
             android:exported="true" />
@@ -20,6 +55,7 @@
             android:exported="true" />
         <activity
             android:name=".Controladores.Servicios.ServicioMoto"
+            android:configChanges="orientation|screenSize"
             android:exported="true" />
         <activity
             android:name=".Controladores.Home.ServicioEnvio"
@@ -28,15 +64,19 @@
             android:name=".Controladores.registrar.RegistrarActivity"
             android:exported="true" />
         <activity
-            android:name=".Controladores.MainActivity"
+            android:name=".SplashScreen.splash_screen"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>

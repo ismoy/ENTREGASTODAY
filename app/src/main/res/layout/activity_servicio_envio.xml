@@ -7,10 +7,41 @@
     tools:context=".Controladores.Home.ServicioEnvio"
     android:background="@color/colordominante">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/servici"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        app:cardElevation="3dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/serviciomoto">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:fontFamily="@font/mulish_regular"
+            android:text="Bienvenido! Selecciona el tipo \n de servicio que quieres tomar:"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center|center_horizontal"
+            android:textSize="18sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="140dp">
 
 
         <androidx.cardview.widget.CardView
@@ -26,7 +57,8 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginStart="15dp"
-                android:src="@mipmap/motog" />
+                android:src="@drawable/ic_repartidor"
+                app:tint="@color/colorbotones" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,6 +67,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:text="Motocicleta"
+                android:fontFamily="@font/mulish_regular"
                 android:textAlignment="center"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="28sp" />
@@ -57,7 +90,8 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginStart="15dp"
-                android:src="@mipmap/automovil" />
+                android:src="@drawable/ic_coche"
+                app:tint="@color/colorbotones" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,6 +100,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:text="Automóvil"
+                android:fontFamily="@font/mulish_regular"
                 android:textAlignment="center"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="28sp" />
@@ -88,7 +123,8 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginStart="15dp"
-                android:src="@mipmap/bicicleta" />
+                android:src="@drawable/ic_bicycle"
+                app:tint="@color/colorbotones" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -97,6 +133,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:text="Bicicleta"
+                android:fontFamily="@font/mulish_regular"
                 android:textAlignment="center"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="28sp" />
@@ -118,7 +155,8 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginStart="15dp"
-                android:src="@mipmap/furgon" />
+                android:src="@drawable/ic_truck"
+                app:tint="@color/colorbotones" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -126,48 +164,46 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
-                android:text="Furgon"
+                android:text="Furgón"
+                android:fontFamily="@font/mulish_regular"
                 android:textAlignment="center"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="28sp" />
 
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
-
+    </ScrollView>
 
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bttomApp"
+        android:id="@+id/botomappbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:backgroundTint="@color/white"
-        app:navigationIcon="@drawable/ic_baseline_home_24"/>
+        app:fabCradleRoundedCornerRadius="20dp"
+        app:menu="@menu/app_bar_menu"
+        app:itemTextColor="@color/black"
+        app:hideOnScroll="true"/>
 
     <ImageView
+        android:id="@+id/volveralhome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_person_pin_24"
-        app:tint="@color/black"
-        android:layout_marginEnd="0dp"
-        android:layout_marginTop="680dp"
-        android:layout_marginStart="280dp"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="350dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginTop="680dp"
-        android:src="@drawable/ic_baseline_settings_24"
-        app:tint="@color/black" />
+        android:src="@drawable/ic_baseline_home_24"
+        android:layout_gravity="bottom|center_vertical"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="20dp"
+        app:tint="@color/colorbotones" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/historial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_add_24"
-        app:backgroundTint="@color/colorazul"
-        app:layout_anchor="@id/bttomApp"
-        app:maxImageSize="30dp"
+        android:src="@drawable/ic_caja"
+        android:tint="@color/white"
+        android:textAlignment="center"
+        android:backgroundTint="@color/colorbotones"
+        app:layout_anchor="@id/botomappbar"
         android:contentDescription="TODO" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
